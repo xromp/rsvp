@@ -30,7 +30,7 @@ export class AuthService {
   }
 
   getGuests(): Observable<any> {
-    return this.http.get(environment.API_URL + `/api/guest`);
+    return this.http.get(environment.API_URL + `/api/guest?passcode=secretonly`);
   }
 
   list(params: any): Observable<any> {
