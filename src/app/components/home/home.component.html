@@ -44,8 +44,10 @@
                             THREE THIRTY IN THE AFTERNOON (03:30 PM)<br>
                             Thrusday, June 08, 2023
                         </p>
-                        <div class="alert alert-success" role="alert" *ngIf="guest?.status !== 'pending'; else ForConfirmationTemplate">
-                            Thank you for taking time completing RSVP. Your response is much appreciated
+                        <div *ngIf="isLoaded">
+                            <div class="alert alert-success" role="alert" *ngIf="guest?.status !== 'pending'; else ForConfirmationTemplate">
+                                Thank you for taking time completing RSVP. Your response is much appreciated
+                            </div>
                         </div>
                         <ng-template #ForConfirmationTemplate>
                             <a class="btn btn-success mt-2" href="{{uuid}}#about">You are Invited</a>
@@ -95,7 +97,7 @@
                                                                             null: 'disabled'"/>
                                                                         </div>
                                                                         <div class="col-12">
-                                                                            <select class="form-select" aria-label="" formControlName="status">
+                                                                            <select class="form-select" aria-label="" formControlName="status" style="border:1px solid #ade59b!important">
                                                                                 <option value="" selected>SELECT RESPONSE</option>
                                                                                 <option value="confirmed">YES, I WILL BE ATTENDING</option>
                                                                                 <option value="declined">NO, I AM UNABLE TO ATTEND</option>

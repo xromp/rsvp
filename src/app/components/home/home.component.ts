@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   submitButton: any = false;
   uuid: string = '';
   guest: any;
+  isLoaded = false;
 
   constructor(
     public router: Router,
@@ -44,11 +45,12 @@ export class HomeComponent implements OnInit {
         this.registerForm.setValue({
           firstName: this.guest.firstName,
           lastName: this.guest.firstName,
-          status: this.guest.status,
+          status: this.guest.status === 'pending' ? '' : this.guest.status,
           extraAttendees: 0,
           reason: ''
         });
         this.cdRef.detectChanges();
+        this.isLoaded = true;
       }, (error) => {
         Swal.fire({
           icon: 'error',
