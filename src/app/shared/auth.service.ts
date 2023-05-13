@@ -29,6 +29,10 @@ export class AuthService {
     return this.http.get(environment.API_URL + `/api/guest/${uuid}`);
   }
 
+  getGuests(): Observable<any> {
+    return this.http.get(environment.API_URL + `/api/guest`);
+  }
+
   list(params: any): Observable<any> {
     return this.http.post(environment.API_URL + '/api/guest/list', params);
   }

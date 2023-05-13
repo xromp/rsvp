@@ -5,8 +5,10 @@ import { SignupComponent } from './components/signup/signup.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { HomeComponent } from './components/home/home.component';
 import { GuestComponent } from './components/guest/guest.component';
+import { ReportComponent } from './components/report/report.component';
 const routes: Routes = [
   // { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'report', component: ReportComponent },
   { path: ':uuid', component: HomeComponent },
   // { path: 'login', component: SigninComponent },
   // { path: 'register', component: SignupComponent },

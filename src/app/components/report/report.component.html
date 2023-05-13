@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="card inner-main">
+      <div class="card-header">
+        <h5>Guest Status Report</h5> <br>
+        Pending: {{response.status.pending}}<br>
+        Confirmed: {{response.status.confirmed}}<br>
+        Declined: {{response.status.declined}}<br>
+      </div>
+      <table>
+        <tr>
+          <th (click)="sort('fullname')">Fullname</th>
+          <th (click)="sort('status')">Status</th>
+          <th (click)="sort('confirmedDate')">Confirm Date</th>
+          <th (click)="sort('inviteLink')">Invite Link</th>
+        </tr>
+        <tbody>
+          <tr *ngFor="let guest of response.guest">
+              <td>{{guest.fullname}}</td>
+              <td>{{guest.status}}</td>
+              <td>{{guest.confirmedDate | date: 'dd/MM/yyyy hh:mm a'}}</td>
+              <td>{{guest.inviteLink}}</td>
+          </tr>
+      </tbody>
+      </table>
+    </div>
+  </div>
