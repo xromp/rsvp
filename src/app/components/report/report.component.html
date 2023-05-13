@@ -8,17 +8,19 @@
       </div>
       <table>
         <tr>
+          <th (click)="sort('id')">Id</th>
           <th (click)="sort('fullname')">Fullname</th>
           <th (click)="sort('status')">Status</th>
           <th (click)="sort('confirmedDate')">Confirm Date</th>
-          <th (click)="sort('inviteLink')">Invite Link</th>
+          <th>Invitation</th>
         </tr>
         <tbody>
           <tr *ngFor="let guest of response.guest">
+              <td>{{guest.id}}</td>
               <td>{{guest.fullname}}</td>
               <td>{{guest.status}}</td>
               <td>{{guest.confirmedDate | date: 'dd/MM/yyyy hh:mm a'}}</td>
-              <td>{{guest.inviteLink}}</td>
+              <td (click)="copy(guest)"><button>copy</button></td>
           </tr>
       </tbody>
       </table>

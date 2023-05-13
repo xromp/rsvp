@@ -3,6 +3,9 @@ import { AuthService } from '../../shared/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 // User interface
 export type Guest = {
+  id: string;
+  uuid: string;
+  firstName: string;
   fullname: string;
   inviteLink: string;
   status: string;
@@ -40,6 +43,21 @@ export class ReportComponent implements OnInit {
     })
 
   }
+
+  copy(guest: Guest) {
+    navigator.clipboard.writeText(`
+Hi ${guest.firstName},
+
+Can we have a minute of your time by responding to our RSVP and letting us know your attendance status?
+
+https://app.romgotaperfectcathch.com/${guest.uuid}
+
+We will assume that you are unable to attend if we don't hear from you by May 25,2023.
+
+Thank you.
+    `);
+  }
+
   sort(column: string) {
     if (column === this.sortColumn) {
       this.sortDirection *= -1;
