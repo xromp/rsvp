@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
         this.guest = response;
         this.registerForm.setValue({
           firstName: this.guest.firstName,
-          lastName: this.guest.firstName,
+          lastName: this.guest.lastName,
           status: this.guest.status === 'pending' ? '' : this.guest.status,
           extraAttendees: 0,
           reason: ''
