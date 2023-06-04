@@ -38,31 +38,31 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.params.subscribe(({ uuid }) => {
-      this.uuid = uuid
-      this.authService.getGuest(this.uuid).subscribe(response => {
-        this.guest = response;
-        this.registerForm.setValue({
-          firstName: this.guest.firstName,
-          lastName: this.guest.lastName,
-          status: this.guest.status === 'pending' ? '' : this.guest.status,
-          extraAttendees: 0,
-          reason: ''
-        });
-        this.cdRef.detectChanges();
-        this.isLoaded = true;
-      }, (error) => {
-        Swal.fire({
-          icon: 'error',
-          // title: this.errors.message,
-          title: "Something went wrong!",
-          text: error.error.message,
-          showConfirmButton: false,
-          timer: 0
-        }).then(result => this.router.navigate(['/']));
+    // this.route.params.subscribe(({ uuid }) => {
+    //   this.uuid = uuid
+    //   this.authService.getGuest(this.uuid).subscribe(response => {
+    //     this.guest = response;
+    //     this.registerForm.setValue({
+    //       firstName: this.guest.firstName,
+    //       lastName: this.guest.lastName,
+    //       status: this.guest.status === 'pending' ? '' : this.guest.status,
+    //       extraAttendees: 0,
+    //       reason: ''
+    //     });
+    //     this.cdRef.detectChanges();
+    //     this.isLoaded = true;
+    //   }, (error) => {
+    //     Swal.fire({
+    //       icon: 'error',
+    //       // title: this.errors.message,
+    //       title: "Something went wrong!",
+    //       text: error.error.message,
+    //       showConfirmButton: false,
+    //       timer: 0
+    //     }).then(result => this.router.navigate(['/']));
 
-      })
-    });
+    //   })
+    // });
 
   }
 

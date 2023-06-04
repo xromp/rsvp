@@ -8,13 +8,15 @@ import { GuestComponent } from './components/guest/guest.component';
 import { ReportComponent } from './components/report/report.component';
 const routes: Routes = [
   // { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'report', component: ReportComponent },
-  { path: ':uuid', component: HomeComponent },
+  { path: '', component: HomeComponent, redirectTo: '', pathMatch: 'full' },
+  // { path: 'report', component: ReportComponent },
+  // { path: ':uuid', component: HomeComponent },
   // { path: 'login', component: SigninComponent },
   // { path: 'register', component: SignupComponent },
   // { path: 'profile', component: UserProfileComponent },
   // { path: 'home', component: HomeComponent },
   // { path: 'admin-guest-041423', component: GuestComponent },
+  { path: '**', component: HomeComponent }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
